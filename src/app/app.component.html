@@ -1,27 +1,49 @@
 <div id="Main_page">
-<div>
-  <mat-toolbar color="primary" >
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Forage Disover</span>
-    <span class="example-spacer"></span>
-    
-  </mat-toolbar>
+    <div>
+      <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Forage Discover</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar>
+    </div>
+    <div class="Contenu">
+      <mat-drawer-container class="menu">
+        <mat-drawer mode="side" class="left-menu" opened>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <button routerLink="/personnels" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>face</mat-icon>
+                Personnels
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button routerLink="/projets" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>face</mat-icon>
+                Projets
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button routerLink="/stock" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>face</mat-icon>
+                Stock
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button routerLink="/factures" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>face</mat-icon>
+                Factures
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet>
+                
+            </router-outlet>
+        </mat-drawer-content>
+      </mat-drawer-container>
+    </div>
+  </div>
   
-</div>
-<div class="Contenu">
-  <mat-drawer-container class="menu">
-    <mat-drawer mode="side" opened>
-      <mat-list role="list">
-        <mat-list-item role="listitem">Item 1</mat-list-item>
-        <mat-list-item role="listitem">Item 2</mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
-        <mat-list-item role="listitem">Item 4</mat-list-item>
-      </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
-  </mat-drawer-container>
-  
-</div>
-</div>

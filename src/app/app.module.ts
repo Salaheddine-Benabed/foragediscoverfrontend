@@ -9,11 +9,24 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-
+import { PersonnelsComponent } from './pages/personnels/personnels.component';
+import { ProjetsComponent } from './pages/projets/projets.component';
+import { StockComponent } from './pages/stock/stock.component';
+import { FacturesComponent } from './pages/factures/factures.component';
+import { HomeComponent } from './pages/home/home.component';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonnelsComponent,
+    ProjetsComponent,
+    StockComponent,
+    FacturesComponent,
+    HomeComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -22,7 +35,10 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
