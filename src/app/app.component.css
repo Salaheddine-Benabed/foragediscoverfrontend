@@ -1,22 +1,25 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .menu {
-    width: auto;
-    height: 100%;
-    margin: 10px;
-    border: 1px solid #555;
-    /* The background property is added to clearly distinguish the borders between drawer and main
-       content */
-    background: #eee;
-  }
+  flex: 1 1 auto;
+}
 
-   .Contenu{
-    height: 100% ;
-   }
+.menu {
+  width: auto;
+  height: 100%;
 
-   #Main_page{
-    height: 100%;
-   }
+  /* The background property is added to clearly distinguish the borders between drawer and main
+     content */
+  background: #eee;
+}
+
+ .Contenu{
+  height: 100% ;
+ }
+
+ #Main_page{
+  height: 100%;
+ }
+
+ .left-menu{
+  width: 300px;
+ }
 
