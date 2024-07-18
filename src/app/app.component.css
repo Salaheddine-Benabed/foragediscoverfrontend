@@ -1,25 +1,69 @@
+/* Global styles for body and html */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+#main_page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Toolbar styles */
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: #3f51b5; /* Ensure toolbar has a background color */
+}
+
+/* Flex spacer for toolbar */
 .example-spacer {
   flex: 1 1 auto;
 }
 
+/* Content area styles */
+
+/* Styles for menu (sidebar) */
 .menu {
   width: auto;
   height: 100%;
-
-  /* The background property is added to clearly distinguish the borders between drawer and main
-     content */
-  background: #eee;
+  background: #f5f5f5; /* Slightly lighter background for the drawer */
 }
 
- .Contenu{
-  height: 100% ;
- }
+.left-menu {
+  width: 280px; /* Adjusted width for a better layout */
+  background: #fafafa; /* Background color for the side menu */
+}
 
- #Main_page{
-  height: 100%;
- }
+/* Styles for the main content area within drawer */
+mat-drawer-content {
+  padding: 20px;
+  background: #fff; /* Background color for the main content */
+}
 
- .left-menu{
-  width: 300px;
- }
+/* List item styles */
+mat-list-item {
+  display: flex;
+  align-items: center;
+}
+
+mat-icon {
+  margin-right: 8px;
+}
+
+/* Button styling for icon buttons */
+button[mat-icon-button] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
 

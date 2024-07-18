@@ -6,14 +6,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjetsComponent } from './pages/projets/projets.component';
 import { StockComponent } from './pages/stock/stock.component';
 import { FacturesComponent } from './pages/factures/factures.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
+  {path:'login',component:LoginComponent},
   {path:'personnels',component:PersonnelsComponent},
   {path:'projets',component:ProjetsComponent},
   {path:'stock',component:StockComponent},
-  {path:'factures',component:FacturesComponent}
+  {path:'factures',component:FacturesComponent},
+  {path:'',component:HomeComponent}
 ];
 
 @NgModule({

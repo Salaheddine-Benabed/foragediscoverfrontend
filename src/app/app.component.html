@@ -1,49 +1,47 @@
-<div id="Main_page">
-    <div>
-      <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Forage Discover</span>
-        <span class="example-spacer"></span>
-      </mat-toolbar>
-    </div>
-    <div class="Contenu">
-      <mat-drawer-container class="menu">
-        <mat-drawer mode="side" class="left-menu" opened>
-          <mat-list role="list">
-            <mat-list-item role="listitem">
-              <button routerLink="/personnels" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>face</mat-icon>
-                Personnels
-              </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <button routerLink="/projets" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>face</mat-icon>
-                Projets
-              </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <button routerLink="/stock" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>face</mat-icon>
-                Stock
-              </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-              <button routerLink="/factures" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>face</mat-icon>
-                Factures
-              </button>
-            </mat-list-item>
-          </mat-list>
-        </mat-drawer>
-        <mat-drawer-content>
-            <router-outlet>
-                
-            </router-outlet>
-        </mat-drawer-content>
-      </mat-drawer-container>
+<div id="main_page">
+  <div *ngIf="!isLoginRoute()">
+    <mat-toolbar color="primary">
+      <span>Forage Discover</span>
+      <span class="example-spacer"></span>
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  </div>
+  <div class="content">
+    <mat-drawer-container *ngIf="!isLoginRoute()" class="menu">
+      <mat-drawer mode="side" class="left-menu" opened>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <button routerLink="/personnels" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>group</mat-icon>
+              Personnels
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button routerLink="/projets" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>work</mat-icon>
+              Projets
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button routerLink="/stock" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>inventory</mat-icon>
+              Stock
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button routerLink="/factures" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>receipt</mat-icon>
+              Factures
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-drawer>
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+    <div *ngIf="isLoginRoute()" class="login-container">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  
+</div>
