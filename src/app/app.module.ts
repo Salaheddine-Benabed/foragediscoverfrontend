@@ -25,6 +25,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AddPersonnelDialogComponent } from './components/add-personnel-dialog/add-personnel-dialog.component';
 import { EditPersonnelDialogComponent } from './components/edit-personnel-dialog/edit-personnel-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
+import { LoginComponent } from './pages/login/login.component';
+import {MatCardModule} from '@angular/material/card'; 
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {MatSelectModule} from '@angular/material/select';
     FacturesComponent,
     HomeComponent,
     AddPersonnelDialogComponent,
-    EditPersonnelDialogComponent
+    EditPersonnelDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatInputModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

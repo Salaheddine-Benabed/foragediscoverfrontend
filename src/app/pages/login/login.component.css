@@ -1,0 +1,24 @@
+/* Specific styles for login component */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 60px auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+}
