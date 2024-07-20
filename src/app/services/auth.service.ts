@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080'; // Your Spring Boot server URL
+  private baseUrl = 'http://localhost:8081'; // Your Spring Boot server URL
 
   constructor(private http: HttpClient, private router: Router) {}
 

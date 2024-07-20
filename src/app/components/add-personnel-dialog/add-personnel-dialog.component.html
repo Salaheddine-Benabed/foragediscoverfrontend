@@ -1,1 +1,35 @@
-<p>add-personnel-dialog works!</p>
+<h1 mat-dialog-title>Add New Personnel</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="newPersonnel.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Department</mat-label>
+    <input matInput [(ngModel)]="newPersonnel.department">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Job Title</mat-label>
+    <input matInput [(ngModel)]="newPersonnel.jobTitle">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="newPersonnel.email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone Number</mat-label>
+    <input matInput [(ngModel)]="newPersonnel.phoneNumber">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="newPersonnel.roleId" placeholder="Select Role">
+      <mat-option *ngFor="let role of roles" [value]="role.id">
+        {{ role.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>

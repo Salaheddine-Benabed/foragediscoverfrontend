@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Personnel } from '../../models/personnel';
 import { RoleService } from '../../services/role.service';
 import { Role } from '../../models/role';
 
@@ -11,6 +10,7 @@ import { Role } from '../../models/role';
 export class EditPersonnelDialogComponent implements OnInit {
   roles: Role[] = [];
   selectedRoleId!: number;
+  roleName!: string;
 
   constructor(
     public dialogRef: MatDialogRef<EditPersonnelDialogComponent>,
@@ -20,9 +20,13 @@ export class EditPersonnelDialogComponent implements OnInit {
 
   ngOnInit() {
     this.fetchRoles();
-    // Check if this.data.person.role is defined before setting selectedRoleId
-    if (this.data.person.role && this.data.person.role.id) {
-      this.selectedRoleId = this.data.person.role.id;
+    // Initialize selectedRoleId with the current roleId of the person
+    if (this.data.person.roleId) {
+      this.selectedRoleId = this.data.person.roleId;
+      this.roleName = this.getRoleName(this.data.person.roleId);
+      console.log('Selected role ID set to:', this.selectedRoleId); // Debug log
+    } else {
+      console.warn('No role ID found for the person'); // Debug log
     }
   }
 
@@ -30,6 +34,7 @@ export class EditPersonnelDialogComponent implements OnInit {
     this.roleService.getAllRoles().subscribe(
       (roles: Role[]) => {
         this.roles = roles;
+        console.log('Roles fetched:', this.roles); // Debug log
       },
       error => {
         console.error('Error fetching roles:', error);
@@ -37,9 +42,15 @@ export class EditPersonnelDialogComponent implements OnInit {
     );
   }
 
+  getRoleName(roleId: number): string {
+    const role = this.roles.find(role => role.id === roleId);
+    return role ? role.name : 'Unknown Role';
+  }
+
   onSaveClick(): void {
     // Update the selected role ID in the data object
-    this.data.person.roleId = this.selectedRoleId.toString(); // Assuming roleName is a string field
+    this.data.person.roleId = this.selectedRoleId;
+    console.log('Saving person with role ID:', this.data.person.roleId); // Debug log
     this.dialogRef.close(this.data.person);
   }
 

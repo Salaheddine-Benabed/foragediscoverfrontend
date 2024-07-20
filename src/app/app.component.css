@@ -66,4 +66,7 @@ button[mat-icon-button] {
   text-align: left;
 }
 
-
+.content{
+  position: block;
+  margin-top: 100px;
+}

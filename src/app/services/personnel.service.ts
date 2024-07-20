@@ -15,7 +15,7 @@ export class PersonnelService {
     return this.http.get<Personnel[]>(`${this.baseURL}/all`);
   }
 
-  public save(personnel: Personnel): Observable<Personnel> {
+  public add(personnel: Personnel): Observable<Personnel> {
     return this.http.post<Personnel>(`${this.baseURL}/add`, personnel);
   }
 
