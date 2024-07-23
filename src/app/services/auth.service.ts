@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8081'; // Your Spring Boot server URL
+  private baseUrl = 'http://localhost:8081/api/v1/auth/login'; // Your Spring Boot server URL
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${this.baseUrl}/login`, { username, password }).subscribe(response => {
+    return this.http.post<any>(`${this.baseUrl}`, { username, password }).subscribe(response => {
       if (response.jwt) {
         localStorage.setItem('authToken', response.jwt);
         this.router.navigate(['/']);
@@ -27,6 +27,14 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('authToken');
+    if (typeof localStorage === 'undefined') {
+      return false;
+    }
+    const token = localStorage.getItem('authToken');
+    return !!token;
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
   }
 }
