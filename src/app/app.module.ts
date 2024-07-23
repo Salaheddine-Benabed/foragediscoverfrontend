@@ -9,7 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +27,8 @@ import { EditPersonnelDialogComponent } from './components/edit-personnel-dialog
 import {MatSelectModule} from '@angular/material/select';
 import { LoginComponent } from './pages/login/login.component';
 import {MatCardModule} from '@angular/material/card'; 
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,11 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     MatCardModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
