@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Add New Personnel</h1>
+<div mat-dialog-content class="w-auto">
+  <mat-form-field>
+    <mat-label>id</mat-label>
+    <input matInput [(ngModel)]="newProject.projectId">
+  </mat-form-field>
+  <ng-container matColumnDef="client">
+    <th mat-header-cell *matHeaderCellDef> client </th>
+    <td mat-cell *matCellDef="let projet"> {{ projet.client || 'N/A' }} </td>
+  </ng-container>
+  
+  <mat-form-field>
+    <mat-label>Project name</mat-label>
+    <input matInput [(ngModel)]="newProject.projectName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Start date</mat-label>
+    <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="newProject.startDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>End date</mat-label>
+    <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="newProject.endDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <input matInput [(ngModel)]="newProject.status">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Total Cost</mat-label>
+    <input matInput [(ngModel)]="newProject.totalCost">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>

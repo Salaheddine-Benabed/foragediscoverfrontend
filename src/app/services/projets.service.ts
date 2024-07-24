@@ -8,16 +8,25 @@ import { Projets } from '../models/projets';
 })
 export class ProjetsService {
 
-  private baseURL ="http://localhost:8081/api/v1/project";
+  private baseURL = "http://localhost:8081/api/v1/project";
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   public getAll(): Observable<Projets[]> {
-    return this.http.get<Projets[]>(this.baseURL+'/all');
+    return this.http.get<Projets[]>(`${this.baseURL}/all`);
   }
 
   public save(projets: Projets): Observable<Projets> {
-    return this.http.post<Projets>(this.baseURL+'/add', Projets);
+    return this.http.post<Projets>(`${this.baseURL}/add`, projets);
+  }
+  
+
+  public update(project: Projets): Observable<Projets> {
+    console.log('data in service : ', project);
+    return this.http.put<Projets>(`${this.baseURL}/update/${project.id}`, project);
+  }
+
+  public delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseURL}/delete/${id}`);
   }
 }
