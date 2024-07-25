@@ -1,6 +1,6 @@
 export class Projets {
     id! :number;
-    client!:string;
+    clientName!:string;
     projectName!:string;
     startDate!:Date;
     endDate!:Date;

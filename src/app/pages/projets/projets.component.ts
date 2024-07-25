@@ -13,7 +13,7 @@ import { AddProjectDialogComponent } from '../../components/add-project-dialog/a
   styleUrls: ['./projets.component.css']
 })
 export class ProjetsComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['projectId', 'client', 'projectName', 'startDate', 'endDate', 'status', 'totalCost', 'actions'];
+  displayedColumns: string[] = ['projectId', 'clientName', 'projectName', 'startDate', 'endDate', 'status', 'totalCost', 'actions'];
   dataSource = new MatTableDataSource<Projets>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -32,8 +32,8 @@ export class ProjetsComponent implements OnInit, AfterViewInit {
     this.projetsService.getAll().subscribe(data => {
       // Handle potential null client
       this.dataSource.data = data.map(projet => {
-        if (!projet.client) {
-          projet.client = 'N/A'; // Default value for client if it's null
+        if (!projet.clientName) {
+          projet.clientName = 'N/A'; // Default value for client if it's null
         }
         return projet;
       });
