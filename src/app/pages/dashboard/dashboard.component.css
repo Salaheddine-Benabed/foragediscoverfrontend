@@ -1,0 +1,32 @@
+.container {
+    max-width: 1200px;
+  }
+  
+  mat-card {
+    height: 192px; /* Adjust height if needed */
+  }
+  
+  mat-icon {
+    font-size: 24px; /* Adjust font size if needed */
+  }
+  
+  .mat-card-title {
+    margin-bottom: 8px; /* Add margin below the title */
+  }
+  
+  .text-black {
+    color: black;
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .mb-2 {
+    margin-bottom: 8px;
+  }
+  
+  .h-48 {
+    height: 192px; /* Tailwind class for fixed height */
+  }
+  

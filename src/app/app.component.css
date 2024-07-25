@@ -1,75 +1,24 @@
-/* Global styles for body and html */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* Prevent scrolling */
+/* Styles for active navigation button */
+mat-list-item.active button[mat-icon-button] {
+  background-color: rgba(63, 81, 181, 0.1); /* Light background color */
+  color: #3f51b5; /* Match primary color */
 }
 
-#main_page {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+/* Additional styles to ensure buttons look good */
+mat-list-item.active mat-icon {
+  color: #3f51b5; /* Ensure the icon color matches */
 }
 
-/* Toolbar styles */
-.mat-toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  background-color: #3f51b5; /* Ensure toolbar has a background color */
-}
-
-/* Flex spacer for toolbar */
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-/* Content area styles */
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-top: 64px; /* Adjust according to your toolbar height */
-}
-
-/* Styles for menu (sidebar) */
-.menu {
-  flex: 1;
-  display: flex;
-  height: calc(100% - 64px); /* Adjust according to your toolbar height */
-}
-
-.left-menu {
-  width: 280px; /* Adjusted width for a better layout */
-  background: #fafafa; /* Background color for the side menu */
-}
-
-/* Styles for the main content area within drawer */
-mat-drawer-content {
-  flex: 1;
-  padding: 20px;
-  background: #fff; /* Background color for the main content */
-}
-
-/* List item styles */
-mat-list-item {
-  display: flex;
-  align-items: center;
-}
-
-mat-icon {
-  margin-right: 8px;
-}
-
-/* Button styling for icon buttons */
-button[mat-icon-button] {
+mat-list-item button[mat-icon-button] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   text-align: left;
+  padding: 10px 20px; /* Adjust padding if needed */
+  border-radius: 4px; /* Slight border radius for better look */
 }
 
+mat-list-item.active button[mat-icon-button]:hover {
+  background-color: rgba(63, 81, 181, 0.2); /* Slightly darker on hover */
+}

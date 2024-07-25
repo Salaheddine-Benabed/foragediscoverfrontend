@@ -23,10 +23,10 @@ export class ProjetsService {
 
   public update(project: Projets): Observable<Projets> {
     console.log('data in service : ', project);
-    return this.http.put<Projets>(`${this.baseURL}/update/${project.id}`, project);
+    return this.http.put<Projets>(`${this.baseURL}/update/${project.projectId}`, project);
   }
 
   public delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseURL}/delete/${id}`);
+    return this.http.delete<void>(`${this.baseURL}/${id}`);
   }
 }

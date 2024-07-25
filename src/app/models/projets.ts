@@ -1,5 +1,5 @@
 export class Projets {
-    id! :number;
+    projectId! :number;
     clientName!:string;
     projectName!:string;
     startDate!:Date;

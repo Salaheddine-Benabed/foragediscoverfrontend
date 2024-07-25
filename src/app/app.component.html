@@ -1,34 +1,36 @@
 <div id="main_page" class="flex flex-row p-10 h-100">
   <div *ngIf="!isLoginRoute()">
+  <a routerLink="/">
     <mat-toolbar color="primary">
       <span>Forage Discover</span>
       <span class="example-spacer"></span>
       <button mat-button (click)="logout()">Logout</button>
     </mat-toolbar>
+  </a>
   </div>
   <div class="content">
     <mat-drawer-container *ngIf="!isLoginRoute()" class="menu">
       <mat-drawer mode="side" class="left-menu" opened>
         <mat-list role="list">
-          <mat-list-item role="listitem">
+          <mat-list-item role="listitem" routerLinkActive="active">
             <button routerLink="/personnels" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
               <mat-icon>group</mat-icon>
               Personnels
             </button>
           </mat-list-item>
-          <mat-list-item role="listitem">
+          <mat-list-item role="listitem" routerLinkActive="active">
             <button routerLink="/projets" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
               <mat-icon>work</mat-icon>
               Projets
             </button>
           </mat-list-item>
-          <mat-list-item role="listitem">
+          <mat-list-item role="listitem" routerLinkActive="active">
             <button routerLink="/stock" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
               <mat-icon>inventory</mat-icon>
               Stock
             </button>
           </mat-list-item>
-          <mat-list-item role="listitem">
+          <mat-list-item role="listitem" routerLinkActive="active">
             <button routerLink="/factures" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
               <mat-icon>receipt</mat-icon>
               Factures

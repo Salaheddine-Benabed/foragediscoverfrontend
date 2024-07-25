@@ -10,14 +10,19 @@ export class StockService {
 
   private baseURL ="http://localhost:8081/api/v1/stockItem";
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   public getAll(): Observable<Stock[]> {
-    return this.http.get<Stock[]>(this.baseURL+'/all');
+    return this.http.get<Stock[]>(`${this.baseURL}/all`);
   }
 
   public save(stock: Stock): Observable<Stock> {
-    return this.http.post<Stock>(this.baseURL+'/add', Stock);
+    return this.http.post<Stock>(`${this.baseURL}/add`, stock);
   }
+
+  public delete(itemId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseURL}/itemId`);
+  }
+  
+  
 }

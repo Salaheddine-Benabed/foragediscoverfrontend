@@ -7,6 +7,7 @@ import { FacturesComponent } from './pages/factures/factures.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { ProjetsComponent } from './pages/projets/projets.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'projets', component: ProjetsComponent, canActivate: [AuthGuard] },
   { path: 'stock', component: StockComponent, canActivate: [AuthGuard] },
   { path: 'factures', component: FacturesComponent, canActivate: [AuthGuard] },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

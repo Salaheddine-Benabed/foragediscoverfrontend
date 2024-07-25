@@ -38,6 +38,9 @@ import { AddProjectDialogComponent } from './components/add-project-dialog/add-p
 // Services
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthService } from './services/auth.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AddStockDialogComponent } from './components/add-stock-dialog/add-stock-dialog.component';
+import { EditStockDialogComponent } from './components/edit-stock-dialog/edit-stock-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { AuthService } from './services/auth.service';
     EditPersonnelDialogComponent,
     LoginComponent,
     EditProjectDialogComponent,
-    AddProjectDialogComponent
+    AddProjectDialogComponent,
+    DashboardComponent,
+    AddStockDialogComponent,
+    EditStockDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a routerLink="/personnels">
+        <mat-card class="flex flex-col items-center justify-center p-4 bg-blue-700 text-black h-48">
+          <mat-icon class="text-6xl mb-2 text-orange-500">people</mat-icon>
+          <mat-card-title class="mb-2">Personnel</mat-card-title>
+          <mat-card-content>
+            <p class="text-4xl">{{ personnelCount }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+      
+      <a routerLink="/projets">
+        <mat-card class="flex flex-col items-center justify-center p-4 bg-green-700 text-black h-48">
+          <mat-icon class="text-6xl mb-2 text-blue-500">work</mat-icon>
+          <mat-card-title class="mb-2">Projects</mat-card-title>
+          <mat-card-content>
+            <p class="text-4xl">{{ projectCount }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+      
+      <mat-card class="flex flex-col items-center justify-center p-4 bg-yellow-600 text-black h-48">
+        <mat-icon class="text-6xl mb-2 text-blue-500">autorenew</mat-icon>
+        <mat-card-title class="mb-2">Ongoing Projects</mat-card-title>
+        <mat-card-content>
+          <p class="text-4xl">{{ ongoingProjects }}</p>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="flex flex-col items-center justify-center p-4 bg-red-700 text-black h-48">
+        <mat-icon class="text-6xl mb-2 text-green-500">check_circle</mat-icon>
+        <mat-card-title class="mb-2">Completed Projects</mat-card-title>
+        <mat-card-content>
+          <p class="text-4xl">{{ completedProjects }}</p>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card class="flex flex-col items-center justify-center p-4 bg-purple-700 text-black h-48">
+        <mat-icon class="text-6xl mb-2 text-orange-500">attach_money</mat-icon>
+        <mat-card-title class="mb-2">Total Cost</mat-card-title>
+        <mat-card-content>
+          <p class="text-4xl">MAD{{ totalCost }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
