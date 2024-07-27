@@ -20,9 +20,8 @@ export class StockService {
     return this.http.post<Stock>(`${this.baseURL}/add`, stock);
   }
 
-  public delete(itemId: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseURL}/itemId`);
+  public delete(itemId: number): Observable<any> {
+    return this.http.delete(`${this.baseURL}/delete/${itemId}`);
   }
-  
   
 }

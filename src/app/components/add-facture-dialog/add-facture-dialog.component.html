@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Ajouter une facture</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Client</mat-label>
+    <mat-select [(ngModel)]="facture.projectId" placeholder="Select Client">
+      <mat-option *ngFor="let project of projects" value="{{project.projectId}}">
+        {{project.projectName}}
+      </mat-option>
+    </mat-select> 
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Montent</mat-label>
+    <input matInput [(ngModel)]="facture.amount">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date de payment</mat-label>
+    <input matInput [(ngModel)]="facture.paymentDate" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Payment Status</mat-label>
+    <mat-select [(ngModel)]="facture.paymentStatus" placeholder="Select Payment Status">
+      <mat-option value="full">payment total</mat-option>
+      <mat-option value="partial">Payment partiel</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</div>

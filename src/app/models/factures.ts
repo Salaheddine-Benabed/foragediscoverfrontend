@@ -2,5 +2,7 @@ export class Factures {
     paymentId!:number ;
     paymentDate!:Date;
     amount!: number;
-    status! : string;
+    paymentStatus! : string;
+    projectId!: number;
+    projectName!: string;
 }

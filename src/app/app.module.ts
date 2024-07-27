@@ -41,6 +41,11 @@ import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AddStockDialogComponent } from './components/add-stock-dialog/add-stock-dialog.component';
 import { EditStockDialogComponent } from './components/edit-stock-dialog/edit-stock-dialog.component';
+import { AddFactureDialogComponent } from './components/add-facture-dialog/add-facture-dialog.component';
+import { EditFactureDialogComponent } from './components/edit-facture-dialog/edit-facture-dialog.component';
+import { ClientComponent } from './pages/client/client.component';
+import { AddClientDialogComponent } from './components/add-client-dialog/add-client-dialog.component';
+import { EditClientDialogComponent } from './components/edit-client-dialog/edit-client-dialog.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,12 @@ import { EditStockDialogComponent } from './components/edit-stock-dialog/edit-st
     AddProjectDialogComponent,
     DashboardComponent,
     AddStockDialogComponent,
-    EditStockDialogComponent
+    EditStockDialogComponent,
+    AddFactureDialogComponent,
+    EditFactureDialogComponent,
+    ClientComponent,
+    AddClientDialogComponent,
+    EditClientDialogComponent
   ],
   imports: [
     BrowserModule,

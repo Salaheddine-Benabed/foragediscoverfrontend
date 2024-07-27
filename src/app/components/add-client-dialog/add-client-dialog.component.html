@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add New Client</h1>
+<div mat-dialog-content class="add_client">
+    <mat-form-field>
+        <mat-label>Client name</mat-label>
+        <input matInput [(ngModel)]="newClient.name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Client address</mat-label>
+        <input matInput type="text" [(ngModel)]="newClient.address">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Client phone number</mat-label>
+        <input matInput [(ngModel)]="newClient.phoneNumber">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Client email</mat-label>
+        <input matInput [(ngModel)]="newClient.email">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()">Save</button>
+</div>
