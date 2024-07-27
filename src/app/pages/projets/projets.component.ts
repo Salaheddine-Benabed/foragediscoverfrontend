@@ -37,9 +37,10 @@ export class ProjetsComponent implements OnInit, AfterViewInit {
     this.projetsService.getAll().subscribe(data => {
       // Handle potential null client
       this.dataSource.data = data.map(projet => {
-        if (!projet.clientId) {
+        if (projet.clientId) {
           this.clientService.getClientById(projet.clientId).subscribe(client => {
             // add a field to the projet object
+            console.log("associated client is : "+client);
             projet.clientName = client.name;
           });
         }

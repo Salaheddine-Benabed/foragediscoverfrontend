@@ -23,7 +23,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         // if response is 401 or 403 log out user 
         console.log("Error status : "+error.status);
-        if (error.status === 401 ){ //|| error.status === 403){
+        if (error.status === 401 || error.status === 403){
           // Token is invalid or expired, log out the user
           this.authService.logout();
         }

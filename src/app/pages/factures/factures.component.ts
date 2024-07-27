@@ -5,6 +5,7 @@ import { Factures } from '../../models/factures';
 import { FacturesService } from '../../services/factures.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddFactureDialogComponent } from '../../components/add-facture-dialog/add-facture-dialog.component';
+import { EditFactureDialogComponent } from '../../components/edit-facture-dialog/edit-facture-dialog.component';
 
 @Component({
   selector: 'app-factures',
@@ -13,14 +14,15 @@ import { AddFactureDialogComponent } from '../../components/add-facture-dialog/a
 })
 export class FacturesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['paymentId','clientName','paymentDate', 'amount', 'paymentStatus'];
+  displayedColumns: string[] = ['paymentId','projectName','paymentDate', 'amount', 'paymentStatus','actions'];
   dataSource = new MatTableDataSource<Factures>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private facturesService: FacturesService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.fetchFactures();
@@ -54,4 +56,27 @@ export class FacturesComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  deleteFacture(paymentId: number) {
+    this.facturesService.delete(paymentId).subscribe(() => {
+      this.fetchFactures();
+    });
+  }
+
+  editFacture(facture: Factures) {
+    const dialogRef = this.dialog.open(EditFactureDialogComponent, {
+      width: '350px',
+      data:  facture 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.facturesService.update(result).subscribe(() => {
+          this.fetchFactures();
+        });
+      }
+    });
+  }
+
+
 }

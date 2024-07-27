@@ -22,4 +22,12 @@ export class FacturesService {
     return this.http.post<Factures>(this.baseURL+'/payment/add', facture);
   }
 
+  public delete(paymentId: number): Observable<void> {
+    return this.http.delete<void>(this.baseURL+'/payment/'+paymentId);
+  }
+
+  public update(facture: Factures): Observable<Factures> {
+    return this.http.put<Factures>(this.baseURL+'/payment/'+facture.paymentId, facture);
+  }
+
 }

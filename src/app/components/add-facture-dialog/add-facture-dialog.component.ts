@@ -21,7 +21,6 @@ export class AddFactureDialogComponent implements OnInit {
     projectId: ''
   };
 
-  clients: Client[] = [];
   projects: Projets[] = [];
 
   constructor(
@@ -33,10 +32,6 @@ export class AddFactureDialogComponent implements OnInit {
   ngOnInit(): void {
     this.projectService.getAll().subscribe((data: Projets[]) => {
       this.projects = data;
-    });
-
-    this.clientService.fetchClients().subscribe((data: Client[]) => {
-      this.clients = data;
     });
   }
 

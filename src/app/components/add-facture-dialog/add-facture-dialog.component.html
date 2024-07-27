@@ -3,9 +3,9 @@
 
   <mat-form-field>
     <mat-label>Client</mat-label>
-    <mat-select [(ngModel)]="facture.clientId" placeholder="Select Client">
-      <mat-option *ngFor="let client of clients" value="{{client.clientId}}">
-        {{client.name}}
+    <mat-select [(ngModel)]="facture.projectId" placeholder="Select Client">
+      <mat-option *ngFor="let project of projects" value="{{project.projectId}}">
+        {{project.projectName}}
       </mat-option>
     </mat-select> 
   </mat-form-field>
