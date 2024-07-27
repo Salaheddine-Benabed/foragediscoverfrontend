@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>Add New Personnel</h1>
 <div mat-dialog-content class="w-auto">
-  <mat-form-field>
-    <mat-label>id</mat-label>
-    <input matInput [(ngModel)]="newProject.projectId">
-  </mat-form-field>
-  <ng-container matColumnDef="client">
-    <th mat-header-cell *matHeaderCellDef> client </th>
-    <td mat-cell *matCellDef="let projet"> {{ projet.client || 'N/A' }} </td>
-  </ng-container>
   
+  <mat-form-field>
+    <mat-select matInput [(ngModel)]="newProject.clientId" placeholder="Select Client">
+      <mat-option *ngFor="let client of clients" [value]="client.clientId">
+        {{ client.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field>
     <mat-label>Project name</mat-label>
     <input matInput [(ngModel)]="newProject.projectName">
