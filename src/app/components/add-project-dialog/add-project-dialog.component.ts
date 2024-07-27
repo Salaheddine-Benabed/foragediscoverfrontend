@@ -10,7 +10,7 @@ export class AddProjectDialogComponent {
 
   newProject = {
     projectId: '',
-    client: '',
+    clientId: '',
     projectName: '',
     startDate: '',
     endDate: '',

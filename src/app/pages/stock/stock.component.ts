@@ -77,6 +77,9 @@ export class StockComponent implements OnInit, AfterViewInit {
 
   deleteStock(itemId: number) {
     console.log("deleting : ", itemId);
-    this.stockService.delete(itemId).subscribe
+    this.stockService.delete(itemId).subscribe(() => {
+      this.fetchStock();
+    }
+    );
   }
 }

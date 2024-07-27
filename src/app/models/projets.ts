@@ -1,9 +1,10 @@
 export class Projets {
     projectId! :number;
-    clientName!:string;
+    clientId!:number;
     projectName!:string;
     startDate!:Date;
     endDate!:Date;
     status!:string;
     totalCost!:number;
+    clientName!: string;
 }

@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Factures } from '../../models/factures';
 import { FacturesService } from '../../services/factures.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddFactureDialogComponent } from '../../components/add-facture-dialog/add-facture-dialog.component';
 
 @Component({
   selector: 'app-factures',
@@ -10,12 +12,15 @@ import { FacturesService } from '../../services/factures.service';
   styleUrls: ['./factures.component.css']
 })
 export class FacturesComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['paymentId', 'paymentDate', 'amount', 'paymentStatus'];
+
+  displayedColumns: string[] = ['paymentId','clientName','paymentDate', 'amount', 'paymentStatus'];
   dataSource = new MatTableDataSource<Factures>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private facturesService: FacturesService) {}
+  constructor(
+    private facturesService: FacturesService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.fetchFactures();
@@ -28,6 +33,25 @@ export class FacturesComponent implements OnInit, AfterViewInit {
   fetchFactures() {
     this.facturesService.getAll().subscribe(data => {
       this.dataSource.data = data;
+    });
+  }
+
+  createFacture(facture: Factures) {
+    this.facturesService.save(facture).subscribe(() => {
+      this.fetchFactures();
+    });
+  }
+
+  addFacture() {
+    const dialogRef = this.dialog.open(AddFactureDialogComponent, {
+      width: '350px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.createFacture(result);
+      }
     });
   }
 }

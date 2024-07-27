@@ -6,6 +6,7 @@ import { ProjetsService } from '../../services/projets.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProjectDialogComponent } from '../../components/edit-project-dialog/edit-project-dialog.component';
 import { AddProjectDialogComponent } from '../../components/add-project-dialog/add-project-dialog.component';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-projets',
@@ -18,7 +19,11 @@ export class ProjetsComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private projetsService: ProjetsService, private dialog: MatDialog) {}
+  constructor(
+    private projetsService: ProjetsService, 
+    private dialog: MatDialog,
+    private clientService: ClientService
+  ) {}
 
   ngOnInit() {
     this.fetchProjets();
@@ -32,8 +37,11 @@ export class ProjetsComponent implements OnInit, AfterViewInit {
     this.projetsService.getAll().subscribe(data => {
       // Handle potential null client
       this.dataSource.data = data.map(projet => {
-        if (!projet.clientName) {
-          projet.clientName = 'N/A'; // Default value for client if it's null
+        if (!projet.clientId) {
+          this.clientService.getClientById(projet.clientId).subscribe(client => {
+            // add a field to the projet object
+            projet.clientName = client.name;
+          });
         }
         return projet;
       });
