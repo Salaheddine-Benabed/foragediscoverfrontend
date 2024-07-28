@@ -9,8 +9,10 @@
     <input matInput type="number" [(ngModel)]="newStock.quantity">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Status</mat-label>
-    <input matInput [(ngModel)]="newStock.status">
+    <mat-select matInput [(ngModel)]="newStock.status" placeholder="Selectionner le statut">
+      <mat-option value="availiable">Disponible</mat-option>
+      <mat-option value="out_of_stock">Indisponible</mat-option>
+    </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Expiry Date</mat-label>

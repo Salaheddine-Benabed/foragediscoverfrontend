@@ -18,7 +18,10 @@ export class DashboardComponent implements OnInit {
   completedProjects: number = 0;
   totalCost: number = 0;
 
-  constructor(private projetsService: ProjetsService) {}
+  constructor(
+    private projetsService: ProjetsService,
+    private personelService:PersonnelService
+  ) {}
 
   ngOnInit(): void {
     this.loadProjects();
@@ -26,10 +29,16 @@ export class DashboardComponent implements OnInit {
 
   loadProjects(): void {
     this.projetsService.getAll().subscribe((projects: Projets[]) => {
+      console.log('number of projects is : ',projects.length);
       this.projectCount = projects.length;
       this.ongoingProjects = projects.filter(project => project.status === 'Ongoing').length;
       this.completedProjects = projects.filter(project => project.status === 'Completed').length;
       this.totalCost = projects.reduce((sum, project) => sum + project.totalCost, 0);
     });
+
+    this.personelService.getAll().subscribe((personels:Personnel[]) => {
+      this.personnelCount = personels.length;
+    });
   }
+
 }
