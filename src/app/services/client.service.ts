@@ -21,7 +21,7 @@ export class ClientService {
   }
 
   public update(client: Client): Observable<Client> {
-    return this.http.put<Client>(this.baseURL + '/client/', client);
+    return this.http.put<Client>(this.baseURL + '/client/' + client.clientId, client);
   }
 
   public delete(clientId: number): Observable<void> {

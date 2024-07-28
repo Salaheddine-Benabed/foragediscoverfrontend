@@ -11,7 +11,6 @@ export class AddClientDialogComponent {
 
   newClient = {
     name: '',
-    contactInfo: '',
     address: '',
     phoneNumber: '',
     email: ''
