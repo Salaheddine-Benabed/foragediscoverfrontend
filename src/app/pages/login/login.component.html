@@ -1,23 +1,33 @@
-<div class="login-container">
-    <mat-card class="login-card">
-      <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="bg-slate-50">
-        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <mat-form-field appearance="fill">
-            <mat-label>Username</mat-label>
-            <input matInput formControlName="username" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password" required>
-          </mat-form-field>
-          <div class="login-button">
-            <button mat-raised-button color="primary" type="submit">Login</button>
+
+<div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+  <div class="w-full p-6 bg-white rounded-lg shadow-lg max-w-4xl">
+    <div class="flex flex-col md:flex-row">
+      <div class="md:w-1/2 p-4">
+        <img src="assets/well.jpg" alt="Well" class="rounded-lg shadow-lg w-full">
+      </div>
+      <div class="md:w-1/2 p-4">
+        <h2 class="text-2xl font-bold mb-4">Bienvenue à la Compagnie de Forage d'Eau</h2>
+        <p class="mb-4">
+          Nous sommes spécialisés dans le forage de puits pour fournir de l'eau potable aux communautés rurales. 
+          Notre mission est de garantir un accès fiable à l'eau pour tous.
+        </p>
+        <form class="space-y-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="username" class="block font-medium">Nom d'utilisateur</label>
+            <input id="username" name="username" type="text" formControlName="username" required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="password" class="block font-medium">Mot de passe</label>
+            <input id="password" name="password" type="password" formControlName="password" required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <button type="submit"
+              class="w-full px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600">Connexion</button>
           </div>
         </form>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
   </div>
-  
+</div>

@@ -1,10 +1,14 @@
 <div id="main_page" class="flex flex-row p-10 h-100">
   <div *ngIf="!isLoginRoute()">
   <a routerLink="/">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="bg-slate-300">
+      <!--logo of company -->
+      <img src="assets/forage_logo.png" alt="logo" class="logo w-10 h-10">
       <span>Forage Discover</span>
       <span class="example-spacer"></span>
-      <button mat-button (click)="logout()">Logout</button>
+      <button mat-button (click)="logout()" class="logout-button bg-red-500">
+        Logout
+      </button>
     </mat-toolbar>
   </a>
   </div>
