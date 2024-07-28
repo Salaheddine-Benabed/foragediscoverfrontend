@@ -109,3 +109,6 @@ body {
     background-color: rgba(63, 81, 181, 0.2); /* Slightly darker on hover */
   }
   
+  mat-form-field {
+    width: 100%;
+  }

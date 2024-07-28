@@ -23,7 +23,7 @@ export class ProjetsService {
 
   public update(project: Projets): Observable<Projets> {
     console.log('data in service : ', project);
-    return this.http.put<Projets>(`${this.baseURL}/update/${project.projectId}`, project);
+    return this.http.put<Projets>(`${this.baseURL}/${project.projectId}`, project);
   }
 
   public delete(id: number): Observable<void> {

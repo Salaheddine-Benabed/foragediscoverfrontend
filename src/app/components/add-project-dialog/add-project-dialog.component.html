@@ -34,6 +34,13 @@
     <input matInput [(ngModel)]="newProject.status">
   </mat-form-field>
   <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="newProject.status" placeholder="Select Status">
+      <mat-option value="done">DONE</mat-option>
+      <mat-option value="ongoing">ONGOING</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
     <mat-label>Total Cost</mat-label>
     <input matInput [(ngModel)]="newProject.totalCost">
   </mat-form-field>

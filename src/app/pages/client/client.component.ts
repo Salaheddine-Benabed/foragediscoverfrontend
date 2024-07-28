@@ -14,7 +14,7 @@ import { EditClientDialogComponent } from '../../components/edit-client-dialog/e
 })
 export class ClientComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['clientId', 'name','contactInfo', 'address', 'phoneNumber', 'email', 'actions'];
+  displayedColumns: string[] = ['clientId', 'name', 'address', 'phoneNumber', 'email', 'actions'];
   dataSource = new MatTableDataSource<Client>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
